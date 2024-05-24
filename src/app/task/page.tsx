@@ -90,10 +90,9 @@ function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
   );
 }
 
-function page() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [gender, setGender] = useState(false);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+function Page(): ReactNode {
+  const [gender, setGender] = useState<boolean>(false);
+
   const windowSize = useWindowSize();
 
   return (
@@ -787,4 +786,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
