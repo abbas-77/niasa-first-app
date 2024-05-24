@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import localFont from '@next/font/local';
 import { Barlow, Public_Sans } from 'next/font/google';
 
 // ----------------------------------------------------------------------
@@ -31,6 +33,32 @@ declare module '@mui/material/styles' {
   }
 }
 
+export const montFont = localFont({
+  src: [
+    {
+      // path: '../../../public/fonts/MontFont/Mont-Light.woff',
+      path: '../../public/fonts/MontFont/Mont-Light.woff',
+      weight: '300',
+    },
+    {
+      path: '../../public/fonts/MontFont/Mont-Regular.woff',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/MontFont/Mont-Semibold.woff',
+      weight: '600',
+    },
+    {
+      path: '../../public/fonts/MontFont/Mont-Bold.woff',
+      weight: '700',
+    },
+    {
+      path: '../../public/fonts/MontFont/Mont-Black.woff',
+      weight: '900',
+    },
+  ],
+});
+
 export const primaryFont = Public_Sans({
   weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
@@ -51,7 +79,7 @@ export const secondaryFont = Barlow({
 // https://nextjs.org/docs/basic-features/font-optimization#google-fonts
 
 export const typography = {
-  fontFamily: primaryFont.style.fontFamily,
+  fontFamily: montFont.style.fontFamily,
   fontSecondaryFamily: secondaryFont.style.fontFamily,
   fontWeightRegular: 400,
   fontWeightMedium: 500,

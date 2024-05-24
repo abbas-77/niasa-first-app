@@ -67,3 +67,6 @@ export default function RootLayout({ children }: Props) {
     </html>
   );
 }
+function localFont(arg0: { src: { path: string; weight: string }[]; variable: string }) {
+  throw new Error('Function not implemented.');
+}
