@@ -11,8 +11,8 @@ import {
   Step,
   Stepper,
   Checkbox,
-  StepLabel,
   Container,
+  StepLabel,
   Typography,
 } from '@mui/material';
 
@@ -98,95 +98,100 @@ function Page(): ReactNode {
   return (
     <Container fixed>
       {/* header */}
-      <Grid container spacing={5} padding={3}>
-        <Grid item xs={12} md={3}>
-          <Box onClick={() => setGender(!gender)}>Health Logo</Box>
+      <Grid container spacing={3} paddingTop={5}>
+        <Grid item md={3} xs={12}>
+          <Typography
+            width={200}
+            onClick={() => setGender(!gender)}
+            fontSize="18px"
+            fontWeight={500}
+          >
+            Health Logo
+          </Typography>
         </Grid>
-        <Grid item xs={12} md={6} textAlign="center">
-          <Box>
-            <Stepper activeStep={1} alternativeLabel>
-              {[
-                { label: 'Basic Questions' },
-                { label: 'Choose a Plan' },
-                { label: 'Payment process' },
-                { label: 'Basic information' },
-                { label: 'Injoy the plan' },
-              ].map((label) => (
-                <Step
-                  key={label.label}
-                  sx={{
-                    '& .Mui-completed svg': {
-                      color: '#fff !important',
-                      border: '7px solid #AAE23A',
-                      filter: 'drop-shadow(2px 4px 6px #AAE23A)',
-                      borderRadius: '50%',
-                      width: '30px',
-                      height: '30px',
-                    },
-                    '& .Mui-completed': {
-                      color: '#AAE23A !important',
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      letterSpacing: '-2%',
-                      lineHeight: '16px',
-                    },
-                    '& .Mui-active svg': {
-                      color: '#F0F4F7 !important',
-                      width: '30px',
-                      height: '30px',
-                    },
-                    '& .Mui-active svg text': {
-                      fill: '#072C50 !important',
-                      fontSize: '14px',
-                    },
-                    '& .Mui-active': {
-                      color: '#072C50 !important',
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      letterSpacing: '-2%',
-                      lineHeight: '16px',
-                    },
-                    '& .Mui-active span': {
-                      bgcolor: '#AAE23A !important',
-                    },
-                    '& .Mui-disabled svg': {
-                      color: '#fff !important',
-                      border: '2px solid #F0F4F7',
-                      borderRadius: '100px',
-                      width: '30px',
-                      height: '30px',
-                    },
-                    '& .Mui-disabled svg text': {
-                      fontSize: '14px',
-                      fill: '#7F9CB8 !important',
-                    },
-                    '& .Mui-disabled': {
-                      fontSize: '14px',
-                      color: '#7F9CB8 !important',
-                      fontWeight: '700',
-                      letterSpacing: '-2%',
-                      lineHeight: '16px',
-                    },
-                  }}
-                >
-                  <StepLabel>{label.label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-          </Box>
+        <Grid item md={6} xs={12}>
+          <Stepper activeStep={1} alternativeLabel>
+            {[
+              { label: 'Basic Questions' },
+              { label: 'Choose a Plan' },
+              { label: 'Payment process' },
+              { label: 'Basic information' },
+              { label: 'Injoy the plan' },
+            ].map((label) => (
+              <Step
+                key={label.label}
+                sx={{
+                  minWidth: '87px',
+                  '& .Mui-completed svg': {
+                    color: '#fff !important',
+                    border: '7px solid #AAE23A',
+                    filter: 'drop-shadow(2px 4px 6px #AAE23A)',
+                    borderRadius: '50%',
+                    width: '40px',
+                    height: '40px',
+                  },
+                  '& .Mui-completed': {
+                    color: '#AAE23A !important',
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    letterSpacing: '-2%',
+                    lineHeight: '16px',
+                  },
+                  '& .Mui-active svg': {
+                    color: '#F0F4F7 !important',
+                    width: '40px',
+                    height: '40px',
+                  },
+                  '& .Mui-active svg text': {
+                    fill: '#072C50 !important',
+                    fontSize: '14px',
+                  },
+                  '& .Mui-active': {
+                    color: '#072C50 !important',
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    letterSpacing: '-2%',
+                    lineHeight: '16px',
+                  },
+                  '& .Mui-active span': {
+                    bgcolor: '#AAE23A !important',
+                    borderTopWidth: '2px',
+                  },
+                  '& .css-1wkws5l-MuiStepConnector-root': {
+                    top: '19px',
+                  },
+                  '& .Mui-disabled svg': {
+                    color: '#fff !important',
+                    border: '2px solid #F0F4F7',
+                    borderRadius: '100px',
+                    width: '40px',
+                    height: '40px',
+                  },
+                  '& .Mui-disabled span': {
+                    borderTopWidth: '2px',
+                  },
+                  '& .Mui-disabled svg text': {
+                    fontSize: '14px',
+                    fill: '#7F9CB8 !important',
+                  },
+                  '& .Mui-disabled': {
+                    fontSize: '14px',
+                    color: '#7F9CB8 !important',
+                    fontWeight: '700',
+                    letterSpacing: '-2%',
+                    lineHeight: '16px',
+                  },
+                }}
+              >
+                <StepLabel>{label.label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Box />
-        </Grid>
+        <Grid item md={3} xs={12} />
       </Grid>
       {/* wellness profile */}
-      <Box
-        fontWeight={700}
-        fontSize={32}
-        textAlign="center"
-        marginTop={windowSize === 'md' ? 14 : 2}
-        color="#072C50"
-      >
+      <Box fontWeight={700} fontSize={32} textAlign="center" marginTop={14} color="#072C50">
         Here is your wellness profile
       </Box>
       <Grid
@@ -681,13 +686,13 @@ function Page(): ReactNode {
       </Typography>
       <Grid container spacing={2} mt={2} mb={3}>
         <Grid item xs={12} md={4}>
-          <Card isPopular isSelected isDiscountActive month="1-Month Plan" />
+          <Card isPopular isSelected={false} isDiscountActive month="1-Month Plan" />
         </Grid>
         <Grid item display="flex" alignItems="end" xs={12} md={4}>
           <Card isPopular={false} isSelected={false} isDiscountActive month="2-Month Plan" />
         </Grid>
         <Grid item display="flex" alignItems="end" xs={12} md={4}>
-          <Card isPopular={false} isSelected={false} isDiscountActive month="3-Month Plan" />
+          <Card isPopular={false} isSelected isDiscountActive month="3-Month Plan" />
         </Grid>
       </Grid>
       {/* charts */}
