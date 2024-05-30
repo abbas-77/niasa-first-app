@@ -95,7 +95,7 @@ function Page(): ReactNode {
       {/* wellness profile */}
       <Box
         sx={{
-          fontSize: { xs: '16px', md: '32px' },
+          fontSize: { xs: '24px', md: '32px' },
           marginTop: { xs: '60px', md: '100px' },
         }}
         fontWeight={700}
@@ -410,7 +410,7 @@ function Page(): ReactNode {
       {/* your goal */}
       <Box
         sx={{
-          fontSize: { xs: '16px', md: '32px' },
+          fontSize: { xs: '24px', md: '32px' },
           marginTop: { xs: '60px', md: '100px' },
         }}
         fontWeight={700}
@@ -419,45 +419,50 @@ function Page(): ReactNode {
       >
         By using our plans, you can reach your goal
       </Box>
-      <Grid
-        container
+      <Box
         display="flex"
-        direction="row"
         flexWrap="nowrap"
         justifyContent="center"
         alignItems="center"
         gap={2}
         width="100%"
+        marginTop={3}
         sx={{ position: 'relative' }}
       >
-        <Grid
+        <Box
           position="absolute"
           bgcolor="#C9D6E2"
-          width={windowSize === 'md' ? 96 : 86}
-          height={windowSize === 'md' ? 96 : 86}
+          sx={{
+            width: { xs: '66px', md: '96px' },
+            height: { xs: '66px', md: '96px' },
+            fontSize: { xs: '20px', md: '38px' },
+            bottom: { xs: '90px', md: '150px' },
+          }}
           borderRadius={10}
-          bottom={150}
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
-          <FaChevronRight size={28} />{' '}
-        </Grid>
-        <Grid
-          item
+          <FaChevronRight />
+        </Box>
+        <Box
           width="100%"
           borderRadius={3}
-          height={380}
-          container
-          direction="column"
+          sx={{
+            height: { xs: '240px', md: '380px' },
+          }}
+          display="flex"
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
           bgcolor="#F0F4F7"
         >
           <Box
-            fontSize={16}
-            width={152}
-            height={56}
+            sx={{
+              width: { xs: '100px', md: '152px' },
+              height: { xs: '46px', md: '56px' },
+              fontSize: { xs: '13px', md: '16px' },
+            }}
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -469,11 +474,13 @@ function Page(): ReactNode {
             Now
           </Box>
           <Box
-            width={160}
-            height={275}
+            sx={{
+              position: 'relative',
+              width: { xs: '100px', md: '160px' },
+              height: { xs: '230px', md: '275px' },
+            }}
             marginTop={4}
             textAlign="center"
-            sx={{ position: 'relative' }}
           >
             {gender ? (
               <Image src="/assets/illustrations/model/model4.png" fill alt="model_4" />
@@ -481,22 +488,25 @@ function Page(): ReactNode {
               <Image src="/assets/illustrations/model/model2.png" fill alt="model_2" />
             )}
           </Box>
-        </Grid>
-        <Grid
-          item
+        </Box>
+        <Box
           width="100%"
-          bgcolor="#F0F4F7"
           borderRadius={3}
-          height={380}
-          container
-          direction="column"
+          sx={{
+            height: { xs: '240px', md: '380px' },
+          }}
+          display="flex"
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          bgcolor="#F0F4F7"
         >
           <Box
-            fontSize={16}
-            width={152}
-            height={56}
+            sx={{
+              width: { xs: '100px', md: '152px' },
+              height: { xs: '46px', md: '56px' },
+              fontSize: { xs: '13px', md: '16px' },
+            }}
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -508,11 +518,13 @@ function Page(): ReactNode {
             Your Goal
           </Box>
           <Box
-            width={160}
-            height={275}
+            sx={{
+              position: 'relative',
+              width: { xs: '100px', md: '160px' },
+              height: { xs: '230px', md: '275px' },
+            }}
             marginTop={4}
             textAlign="center"
-            sx={{ position: 'relative' }}
           >
             {gender ? (
               <Image src="/assets/illustrations/model/model5.png" fill alt="model_5" />
@@ -520,8 +532,8 @@ function Page(): ReactNode {
               <Image src="/assets/illustrations/model/model3.png" fill alt="model_3" />
             )}
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
       {/* Goal details */}
       <Box
         display="flex"
@@ -532,9 +544,11 @@ function Page(): ReactNode {
       >
         <Box
           display="flex"
-          justifyContent="center"
+          justifyContent="space-around"
           alignItems="center"
-          gap={windowSize === 'md' ? 25 : 5}
+          sx={{
+            gap: { xs: '15px', md: '35px' },
+          }}
           width="100%"
           height={88}
           border="2px solid #F0F4F7"
@@ -542,7 +556,12 @@ function Page(): ReactNode {
           marginBottom={2}
           color="#072C50"
         >
-          <Typography fontWeight={600} textAlign="center" minWidth={windowSize === 'md' ? 150 : 0}>
+          <Typography
+            fontWeight={600}
+            textAlign="center"
+            sx={{ fontSize: { xs: '12px', ms: '16px' } }}
+            minWidth={115}
+          >
             Excess body fat
           </Typography>
           <Box
@@ -556,34 +575,42 @@ function Page(): ReactNode {
           >
             <FaChevronRight size={16} color="#072C50" />
           </Box>
-          <Typography fontWeight={600} textAlign="center">
+          <Typography
+            fontWeight={600}
+            textAlign="center"
+            sx={{ fontSize: { xs: '12px', ms: '16px' } }}
+          >
             Normal body fat
           </Typography>
         </Box>
         <Box
           display="flex"
-          justifyContent="center"
+          justifyContent="space-around"
           alignItems="center"
-          gap={windowSize === 'md' ? 25 : 5}
+          sx={{
+            gap: { xs: '15px', md: '35px' },
+          }}
           width="100%"
           height={88}
           border="2px solid #F0F4F7"
           borderRadius={2}
           color="#072C50"
         >
-          {windowSize === 'md' ? (
-            <Typography fontWeight={700} display="flex" alignItems="center" gap={1}>
-              Current weight:{' '}
-              <Typography fontSize={windowSize === 'md' ? 24 : 14} fontWeight={600}>
-                78 KG
-              </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: '11px', md: '14px' },
+              fontWeight: { xs: '600', md: '700' },
+            }}
+            display="flex"
+            alignItems="center"
+            gap={1}
+            minWidth={115}
+          >
+            Current weight:{' '}
+            <Typography sx={{ fontSize: { xs: '14px', md: '24px' } }} fontWeight={600}>
+              78 KG
             </Typography>
-          ) : (
-            <Typography fontWeight={600} textAlign="center">
-              Current weight: 78 KG
-            </Typography>
-          )}
-
+          </Typography>
           <Box
             display="flex"
             justifyContent="center"
@@ -595,30 +622,34 @@ function Page(): ReactNode {
           >
             <FaChevronRight size={16} color="#072C50" />
           </Box>
-          {windowSize === 'md' ? (
-            <Typography fontWeight={700} display="flex" alignItems="center" gap={1}>
-              Ideal weight:{' '}
-              <Typography fontSize={24} fontWeight={600}>
-                70 KG
-              </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: '11px', md: '14px' },
+              fontWeight: { xs: '600', md: '700' },
+            }}
+            display="flex"
+            alignItems="center"
+            gap={1}
+          >
+            Ideal weight:{' '}
+            <Typography sx={{ fontSize: { xs: '14px', md: '24px' } }} fontWeight={600}>
+              70 KG
             </Typography>
-          ) : (
-            <Typography fontWeight={600} textAlign="center">
-              Ideal weight: 70 KG
-            </Typography>
-          )}
+          </Typography>
         </Box>
       </Box>
       {/* cards */}
-      <Typography
+      <Box
+        sx={{
+          fontSize: { xs: '24px', md: '32px' },
+          marginTop: { xs: '60px', md: '100px' },
+        }}
         fontWeight={700}
-        fontSize={32}
         textAlign="center"
-        marginTop={windowSize === 'md' ? 14 : 4}
         color="#072C50"
       >
-        Choose your plan just now!{' '}
-      </Typography>
+        Choose your plan just now!
+      </Box>
       <Grid container spacing={2} mt={5} mb={3}>
         <Grid item xs={12} md={4}>
           <Card isPopular isSelected={false} isDiscountActive month="1-Month Plan" />
@@ -631,9 +662,17 @@ function Page(): ReactNode {
         </Grid>
       </Grid>
       {/* charts */}
-      <Typography fontWeight={700} fontSize={32} textAlign="center" marginTop={14} color="#072C50">
-        Your selected 2-month plan is ready!{' '}
-      </Typography>
+      <Box
+        sx={{
+          fontSize: { xs: '24px', md: '32px' },
+          marginTop: { xs: '60px', md: '100px' },
+        }}
+        fontWeight={700}
+        textAlign="center"
+        color="#072C50"
+      >
+        Your selected 2-month plan is ready!
+      </Box>
       {/* <Box display="flex" alignContent="center" justifyContent="center" marginTop={5}>
         <Box
           width={992}
