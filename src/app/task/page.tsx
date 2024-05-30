@@ -13,12 +13,14 @@ import Header from 'src/components/header/Header';
 interface TooltipProps {
   rtl: boolean | undefined;
   left: number | string;
+  leftXs: number | string;
+  leftMd: number | string;
   bgc: string;
   children: ReactNode;
   translateY: number;
 }
 
-function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
+function Tooltip({ rtl, left, leftXs, leftMd, bgc, children, translateY }: TooltipProps) {
   return (
     <Box
       boxShadow="0px 8px 16px 0px #55555560"
@@ -36,6 +38,7 @@ function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
       sx={{
         transform: `translate(-100% , ${translateY}px)`,
         transition: 'all',
+        left: { xs: leftXs, md: leftMd },
       }}
     >
       {children}
@@ -175,7 +178,7 @@ function Page(): ReactNode {
                     height: '4px',
                     display: 'block',
                     position: 'absolute',
-                    left: `50%`,
+                    left: `${leftBmi > 100 ? 100 : leftBmi}%`,
                     borderRadius: '100px',
                     transform: 'translateY(-50%)',
                     top: '50%',
@@ -193,7 +196,9 @@ function Page(): ReactNode {
                 <Tooltip
                   bgc="#87C210"
                   rtl={undefined}
-                  left="50%"
+                  left={`${leftBmi > 100 ? 100 : leftBmi}%`}
+                  leftMd={`${leftBmi > 100 ? 100 : leftBmi}%`}
+                  leftXs={`${leftBmi > 100 ? 100 : leftBmi}%`}
                   children={dataNo}
                   translateY={-55}
                 />
@@ -652,7 +657,7 @@ function Page(): ReactNode {
       >
         Your selected 2-month plan is ready!
       </Box>
-      {/* <Box display="flex" alignContent="center" justifyContent="center" marginTop={5}>
+      <Box display="flex" alignContent="center" justifyContent="center" marginTop={5}>
         <Box
           width={992}
           height={408}
@@ -679,7 +684,7 @@ function Page(): ReactNode {
               </Typography>
             </Box>
           </Box>
-          <Box>
+          <Box position="relative">
             <Box
               marginTop={4}
               sx={{
@@ -701,7 +706,9 @@ function Page(): ReactNode {
             <Tooltip
               bgc="#F0F4F7"
               rtl
-              left={100}
+              left={105}
+              leftXs={105}
+              leftMd={105}
               children={
                 <>
                   <Typography color="#7F9CB8">First day</Typography>
@@ -715,7 +722,9 @@ function Page(): ReactNode {
             <Tooltip
               bgc="#072C50"
               rtl={false}
-              left={890}
+              left={800}
+              leftXs={360}
+              leftMd={800}
               children={
                 <>
                   <Typography color="#7F9CB8">Last day</Typography>
@@ -739,7 +748,7 @@ function Page(): ReactNode {
             </Box>
           </Box>
         </Box>
-      </Box> */}
+      </Box>
     </Container>
   );
 }
