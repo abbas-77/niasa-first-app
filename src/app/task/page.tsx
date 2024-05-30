@@ -5,18 +5,10 @@ import { FaChevronRight } from 'react-icons/fa';
 /* eslint-disable react/destructuring-assignment */
 import React, { useState, useEffect, ReactNode } from 'react';
 
-import {
-  Box,
-  Grid,
-  Step,
-  Stepper,
-  Checkbox,
-  Container,
-  StepLabel,
-  Typography,
-} from '@mui/material';
+import { Box, Grid, Checkbox, Container, Typography } from '@mui/material';
 
 import Card from 'src/components/card/card';
+import Header from 'src/components/header/Header';
 
 interface TooltipProps {
   rtl: boolean | undefined;
@@ -94,104 +86,20 @@ function Page(): ReactNode {
   const [gender, setGender] = useState<boolean>(false);
 
   const windowSize = useWindowSize();
+  // const matches = useMediaQuery('min-width-');
 
   return (
     <Container fixed>
       {/* header */}
-      <Grid container spacing={3} paddingTop={5}>
-        <Grid item md={3} xs={12}>
-          <Typography
-            width={200}
-            onClick={() => setGender(!gender)}
-            fontSize="18px"
-            fontWeight={500}
-          >
-            Health Logo
-          </Typography>
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <Stepper activeStep={1} alternativeLabel>
-            {[
-              { label: 'Basic Questions' },
-              { label: 'Choose a Plan' },
-              { label: 'Payment process' },
-              { label: 'Basic information' },
-              { label: 'Injoy the plan' },
-            ].map((label) => (
-              <Step
-                key={label.label}
-                sx={{
-                  minWidth: '77px',
-                  '& .Mui-completed svg': {
-                    color: '#fff !important',
-                    border: '7px solid #AAE23A',
-                    filter: 'drop-shadow(2px 4px 6px #AAE23A)',
-                    borderRadius: '50%',
-                    width: '40px',
-                    height: '40px',
-                  },
-                  '& .Mui-completed': {
-                    color: '#AAE23A !important',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    letterSpacing: '-2%',
-                    lineHeight: '16px',
-                  },
-                  '& .Mui-active svg': {
-                    color: '#F0F4F7 !important',
-                    width: '40px',
-                    height: '40px',
-                  },
-                  '& .Mui-active svg text': {
-                    fill: '#072C50 !important',
-                    fontSize: '14px',
-                  },
-                  '& .Mui-active': {
-                    color: '#072C50 !important',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    letterSpacing: '-2%',
-                    lineHeight: '16px',
-                  },
-                  '& .Mui-active span': {
-                    bgcolor: '#AAE23A !important',
-                    borderTopWidth: '2px',
-                  },
-                  '& .css-1wkws5l-MuiStepConnector-root': {
-                    top: '19px',
-                  },
-                  '& .Mui-disabled svg': {
-                    color: '#fff !important',
-                    border: '2px solid #F0F4F7',
-                    borderRadius: '100px',
-                    width: '40px',
-                    height: '40px',
-                  },
-                  '& .Mui-disabled span': {
-                    borderTopWidth: '2px',
-                  },
-                  '& .Mui-disabled svg text': {
-                    fontSize: '14px',
-                    fill: '#7F9CB8 !important',
-                  },
-                  '& .Mui-disabled': {
-                    fontSize: '14px',
-                    color: '#7F9CB8 !important',
-                    fontWeight: '700',
-                    letterSpacing: '-2%',
-                    lineHeight: '16px',
-                  },
-                }}
-              >
-                <StepLabel>{label.label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-        </Grid>
-        <Grid item md={3} xs={12} />
-      </Grid>
+      <Header gender={gender} setGender={setGender} />
       {/* wellness profile */}
-      <Box fontWeight={700} fontSize={32} textAlign="center" marginTop={14} color="#072C50">
+      <Box
+        sx={{ fontSize: { sx: '16px', md: '32px' } }}
+        fontWeight={700}
+        textAlign="center"
+        marginTop={14}
+        color="#072C50"
+      >
         Here is your wellness profile
       </Box>
       <Grid
@@ -748,7 +656,7 @@ function Page(): ReactNode {
             <Tooltip
               bgc="#F0F4F7"
               rtl
-              left={windowSize === 'md' ? 100 : -35}
+              left={100}
               children={
                 <>
                   <Typography color="#7F9CB8">First day</Typography>
@@ -762,7 +670,7 @@ function Page(): ReactNode {
             <Tooltip
               bgc="#072C50"
               rtl={false}
-              left={windowSize === 'md' ? 890 : 180}
+              left={890}
               children={
                 <>
                   <Typography color="#7F9CB8">Last day</Typography>
