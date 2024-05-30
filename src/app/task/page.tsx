@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { FaChevronRight } from 'react-icons/fa';
 /* eslint-disable react/destructuring-assignment */
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, ReactNode } from 'react';
 
 import { Box, Grid, Checkbox, Container, Typography } from '@mui/material';
 
@@ -12,49 +12,10 @@ import Header from 'src/components/header/Header';
 
 interface TooltipProps {
   rtl: boolean | undefined;
-  left: number;
+  left: number | string;
   bgc: string;
   children: ReactNode;
   translateY: number;
-}
-
-function getBreakPoint(windowWidth: number) {
-  if (windowWidth) {
-    if (windowWidth > 390) {
-      return 'sm';
-    }
-    if (windowWidth > 900) {
-      return 'md';
-    }
-    return 'md';
-  }
-  return undefined;
-}
-
-function useWindowSize() {
-  const isWindowClient = typeof window === 'object';
-
-  const [windowSize, setWindowSize] = useState(
-    isWindowClient ? getBreakPoint(window.innerWidth) : undefined
-  );
-
-  // eslint-disable-next-line consistent-return
-  useEffect(() => {
-    // a handler which will be called on change of the screen resize
-    function setSize() {
-      setWindowSize(getBreakPoint(window.innerWidth)); // 👈
-    }
-
-    if (isWindowClient) {
-      // register the window resize listener
-      window.addEventListener('resize', setSize);
-
-      // unregister the listerner on destroy of the hook
-      return () => window.removeEventListener('resize', setSize);
-    }
-  }, [isWindowClient, setWindowSize]);
-
-  return windowSize;
 }
 
 function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
@@ -73,7 +34,7 @@ function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
       paddingY={1}
       color="white"
       sx={{
-        transform: `translate(100% , ${translateY}px)`,
+        transform: `translate(-100% , ${translateY}px)`,
         transition: 'all',
       }}
     >
@@ -84,10 +45,24 @@ function Tooltip({ rtl, left, bgc, children, translateY }: TooltipProps) {
 
 function Page(): ReactNode {
   const [gender, setGender] = useState<boolean>(false);
-
-  const windowSize = useWindowSize();
-  // const matches = useMediaQuery('min-width-');
-
+  // bmi charts data
+  const rangeLocation = (position: number): number => {
+    if (position <= 25) {
+      return 0;
+    }
+    if (position <= 50) {
+      return 1;
+    }
+    if (position <= 75) {
+      return 2;
+    }
+    return 3;
+  };
+  const values = [60, 40, 20, 10];
+  const dataNo = 23.8;
+  const leftBmi = (23.8 * 100) / 45;
+  const tooltipLocation = rangeLocation(leftBmi);
+  // end
   return (
     <Container fixed>
       {/* header */}
@@ -200,7 +175,7 @@ function Page(): ReactNode {
                     height: '4px',
                     display: 'block',
                     position: 'absolute',
-                    left: `60%`,
+                    left: `50%`,
                     borderRadius: '100px',
                     transform: 'translateY(-50%)',
                     top: '50%',
@@ -218,12 +193,12 @@ function Page(): ReactNode {
                 <Tooltip
                   bgc="#87C210"
                   rtl={undefined}
-                  left={125}
-                  children={23.8}
+                  left="50%"
+                  children={dataNo}
                   translateY={-55}
                 />
 
-                {[60, 40, 20, 10].map((value, index) => (
+                {values.map((value, index) => (
                   <Box
                     sx={{
                       '&:before': {
@@ -242,12 +217,16 @@ function Page(): ReactNode {
 
                       backgroundColor:
                         // eslint-disable-next-line no-nested-ternary
-                        index === 1 ? '#7F9CB8' : index === 2 ? '#87C210' : '#072C50',
+                        tooltipLocation - 1 === index
+                          ? '#7F9CB8'
+                          : tooltipLocation === index
+                            ? '#87C210'
+                            : '#072C50',
                       height: '4px',
                       borderRadius: '70px',
                       flexShrink: 0,
                     }}
-                    width="25%"
+                    width={`${100 / values.length}%`}
                     key={value}
                   />
                 ))}
@@ -340,7 +319,7 @@ function Page(): ReactNode {
           direction="column"
           alignItems="center"
           gap={2}
-          marginTop={windowSize === 'md' ? 0 : 2}
+          sx={{ marginTop: { xs: '4px', md: 'none' } }}
         >
           <Grid
             item
