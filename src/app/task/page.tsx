@@ -121,7 +121,7 @@ function Page(): ReactNode {
               <Step
                 key={label.label}
                 sx={{
-                  minWidth: '87px',
+                  minWidth: '77px',
                   '& .Mui-completed svg': {
                     color: '#fff !important',
                     border: '7px solid #AAE23A',
@@ -684,7 +684,7 @@ function Page(): ReactNode {
       >
         Choose your plan just now!{' '}
       </Typography>
-      <Grid container spacing={2} mt={2} mb={3}>
+      <Grid container spacing={2} mt={5} mb={3}>
         <Grid item xs={12} md={4}>
           <Card isPopular isSelected={false} isDiscountActive month="1-Month Plan" />
         </Grid>

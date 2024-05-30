@@ -18,7 +18,7 @@ const Card = ({
   month: string;
 }) => (
   <Box className={isSelected ? style.selectedPlan : style.cardPlan}>
-    {isPopular && <Box className={style.isPopular} />}
+    {isPopular && <Box className={style.isPopular}>Most Popular</Box>}
     <Box className={style.cardBody}>
       <Box className={style.bodyConatiner}>
         <Typography variant="h4" className={style.monthTitle}>
@@ -40,7 +40,7 @@ const Card = ({
               $1600
             </div>
           )}
-          <strong style={{ fontSize: '32px', fontWeight: '600', color: '#072C50' }}>
+          <strong style={{ fontSize: '32px', fontWeight: '600' }}>
             <span
               style={{
                 color: '#A6B9CC',
@@ -53,6 +53,7 @@ const Card = ({
               style={{
                 fontSize: '16px',
                 color: '#F41616',
+                marginLeft: '5px',
               }}
             >
               (Special discount)
