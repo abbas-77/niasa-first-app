@@ -41,7 +41,7 @@ function Header({ gender, setGender }: HeaderProps) {
               },
               '& .Mui-completed': {
                 color: '#AAE23A !important',
-                fontSize: '14px',
+                fontSize: { xs: '11px', md: '14px' },
                 fontWeight: '700',
                 letterSpacing: '-2%',
                 lineHeight: '16px',
@@ -53,11 +53,11 @@ function Header({ gender, setGender }: HeaderProps) {
               },
               '& .Mui-active svg text': {
                 fill: '#072C50 !important',
-                fontSize: '14px',
+                fontSize: { xs: '11px', md: '14px' },
               },
               '& .Mui-active': {
                 color: '#072C50 !important',
-                fontSize: '14px',
+                fontSize: { xs: '11px', md: '14px' },
                 fontWeight: '700',
                 letterSpacing: '-2%',
                 lineHeight: '16px',
@@ -80,11 +80,11 @@ function Header({ gender, setGender }: HeaderProps) {
                 borderTopWidth: '2px',
               },
               '& .Mui-disabled svg text': {
-                fontSize: '14px',
+                fontSize: { xs: '11px', md: '14px' },
                 fill: '#7F9CB8 !important',
               },
               '& .Mui-disabled': {
-                fontSize: '14px',
+                fontSize: { xs: '11px', md: '14px' },
                 color: '#7F9CB8 !important',
                 fontWeight: '700',
                 letterSpacing: '-2%',

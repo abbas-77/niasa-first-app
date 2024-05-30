@@ -94,32 +94,36 @@ function Page(): ReactNode {
       <Header gender={gender} setGender={setGender} />
       {/* wellness profile */}
       <Box
-        sx={{ fontSize: { sx: '16px', md: '32px' } }}
+        sx={{
+          fontSize: { xs: '16px', md: '32px' },
+          marginTop: { xs: '60px', md: '100px' },
+        }}
         fontWeight={700}
         textAlign="center"
-        marginTop={14}
         color="#072C50"
       >
         Here is your wellness profile
       </Box>
-      <Grid
-        container
-        direction="row"
+      <Box
+        display="flex"
+        sx={{
+          flexDirection: { xs: 'column', md: 'row' },
+        }}
         justifyContent="center"
         alignItems="center"
         gap={2}
         width="100%"
         paddingY={3}
       >
-        <Grid
-          item
-          xs={12}
-          md={5}
+        <Box
           border="2px solid #F0F4F7"
           borderRadius={3}
           height={320}
-          container
-          direction="column"
+          sx={{
+            width: { xs: '376px', md: '488px' },
+          }}
+          display="flex"
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
         >
@@ -139,8 +143,13 @@ function Page(): ReactNode {
               <Image src="/assets/illustrations/model/model1.png" fill alt="model_1" />
             )}
           </Box>
-        </Grid>
-        <Grid item xs={12} md={5} height={320}>
+        </Box>
+        <Box
+          height={320}
+          sx={{
+            width: { xs: '376px', md: '488px' },
+          }}
+        >
           <Box fontSize={20} border="2px solid #F0F4F7" height={192} width="100%" borderRadius={2}>
             <Box
               display="flex"
@@ -256,8 +265,8 @@ function Page(): ReactNode {
               exercise plan.
             </Box>
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
       {/* details boxes */}
       <Grid container alignItems="center" justifyContent="center" gap={2} color="#072C50">
         <Grid xs={12} md={5} display="flex" direction="column" alignItems="center" gap={2}>
@@ -274,7 +283,10 @@ function Page(): ReactNode {
             <Typography variant="body2" paddingRight={1}>
               Your current weight:
             </Typography>
-            <Typography variant="subtitle1" fontSize={24}>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               87 KG
             </Typography>
@@ -292,7 +304,10 @@ function Page(): ReactNode {
             <Typography variant="body2" paddingRight={1}>
               Your height:
             </Typography>
-            <Typography variant="subtitle1" fontSize={24}>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               178 cm
             </Typography>
@@ -307,10 +322,12 @@ function Page(): ReactNode {
             width="100%"
             height={88}
           >
-            <Typography fontWeight={700} fontSize={14} paddingRight={1}>
+            <Typography variant="body2" paddingRight={1}>
               Fitness level:
             </Typography>
-            <Typography fontWeight={600} fontSize={24}>
+            <Typography
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               Intermediate
             </Typography>
@@ -338,7 +355,10 @@ function Page(): ReactNode {
             <Typography variant="body2" paddingRight={1}>
               Your food taste:
             </Typography>
-            <Typography variant="subtitle1" fontSize={24}>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               Vegan
             </Typography>
@@ -356,7 +376,10 @@ function Page(): ReactNode {
             <Typography variant="body2" paddingRight={1}>
               Your lifestyle:
             </Typography>
-            <Typography variant="subtitle1" fontSize={24}>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               Sedentary
             </Typography>
@@ -374,7 +397,10 @@ function Page(): ReactNode {
             <Typography variant="body2" paddingRight={1}>
               Metabolism:
             </Typography>
-            <Typography variant="subtitle1" fontSize={24}>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
               {' '}
               Moderate, Narrowly
             </Typography>
@@ -382,16 +408,17 @@ function Page(): ReactNode {
         </Grid>
       </Grid>
       {/* your goal */}
-      <Typography
+      <Box
+        sx={{
+          fontSize: { xs: '16px', md: '32px' },
+          marginTop: { xs: '60px', md: '100px' },
+        }}
         fontWeight={700}
-        fontSize={32}
         textAlign="center"
-        marginTop={windowSize === 'md' ? 14 : 4}
-        marginBottom={4}
         color="#072C50"
       >
         By using our plans, you can reach your goal
-      </Typography>
+      </Box>
       <Grid
         container
         display="flex"
@@ -607,7 +634,7 @@ function Page(): ReactNode {
       <Typography fontWeight={700} fontSize={32} textAlign="center" marginTop={14} color="#072C50">
         Your selected 2-month plan is ready!{' '}
       </Typography>
-      <Box display="flex" alignContent="center" justifyContent="center" marginTop={5}>
+      {/* <Box display="flex" alignContent="center" justifyContent="center" marginTop={5}>
         <Box
           width={992}
           height={408}
@@ -694,7 +721,7 @@ function Page(): ReactNode {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
