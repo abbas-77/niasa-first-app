@@ -573,7 +573,7 @@ function Page(): ReactNode {
               bgc="#F0F4F7"
               rtl
               left={120}
-              leftXs={110}
+              leftXs={120}
               leftMd={120}
               children={
                 <>
@@ -589,7 +589,7 @@ function Page(): ReactNode {
               bgc="#072C50"
               rtl={false}
               left={920}
-              leftXs={280}
+              leftXs={390}
               leftMd={920}
               children={
                 <>
