@@ -1,7 +1,9 @@
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+import { Bar, Tooltip, BarChart, ResponsiveContainer } from 'recharts';
 
 import { useMediaQuery } from '@mui/material';
+
+import style from './chart.module.scss';
 
 const data = [
   {
@@ -226,7 +228,22 @@ function PlanBarChart() {
   return (
     <ResponsiveContainer width="100%" height={240}>
       <BarChart width={900} height={240} data={deviceW ? data : data2}>
-        <Bar dataKey="uv" fill="#87C210" barSize={12} radius={20} />
+        <Tooltip
+          contentStyle={{
+            backgroundColor: '#F0F4F7',
+            borderRadius: '20px 20px 20px 0px',
+            boxShadow: '0px 8px 16px 0px #55555560',
+            color: '#072C50',
+            fontWeight: 'bold',
+            border: 'none',
+            width: '100px',
+          }}
+          wrapperStyle={{
+            outline: 'none',
+          }}
+          cursor={{ fill: 'transparent' }}
+        />
+        <Bar dataKey="uv" className={style.rechartsClass} barSize={12} radius={20} />
       </BarChart>
     </ResponsiveContainer>
   );
