@@ -6,7 +6,7 @@ import { FaChevronRight } from 'react-icons/fa';
 /* eslint-disable react/destructuring-assignment */
 import React, { useState, ReactNode } from 'react';
 
-import { Box, Grid, Checkbox, Container, Typography } from '@mui/material';
+import { Box, Grid, Checkbox, Container, Typography, useMediaQuery } from '@mui/material';
 
 import Card from 'src/components/card/card';
 import Header from 'src/components/header/Header';
@@ -16,6 +16,7 @@ import PlanBarChart from 'src/components/bar-chart/PlanBarChart';
 
 function Page(): ReactNode {
   const [gender, setGender] = useState<boolean>(false);
+  const deviceMinW = useMediaQuery('(min-width:450px)');
 
   return (
     <Container fixed>
@@ -260,145 +261,6 @@ function Page(): ReactNode {
           </Box>
         </Box>
       </Box>
-      {/* <Grid container alignItems="center" justifyContent="center" gap={2} color="#072C50">
-        <Grid xs={12} md={6} display="flex" direction="column" alignItems="center" gap={2}>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F0F4F7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Your current weight:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              87 KG
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F0F4F7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Your height:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              178 cm
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F0F4F7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Fitness level:
-            </Typography>
-            <Typography
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              Intermediate
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid
-          xs={12}
-          md={6}
-          display="flex"
-          direction="column"
-          alignItems="center"
-          gap={2}
-          sx={{ marginTop: { xs: '4px', md: 'none' } }}
-        >
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F4FBE7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Your food taste:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              Vegan
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F4FBE7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Your lifestyle:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              Sedentary
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            alignItems="center"
-            bgcolor="#F4FBE7"
-            borderRadius="32px"
-            width="100%"
-            height={88}
-          >
-            <Typography variant="body2" paddingRight={1}>
-              Metabolism:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
-            >
-              {' '}
-              Moderate, Narrowly
-            </Typography>
-          </Grid>
-        </Grid>
-      </Grid> */}
       {/* your goal */}
       <Box
         sx={{
@@ -749,7 +611,7 @@ function Page(): ReactNode {
               bgc="#072C50"
               rtl={false}
               left={920}
-              leftXs={390}
+              leftXs={deviceMinW ? 360 : 260}
               leftMd={920}
               children={
                 <>
