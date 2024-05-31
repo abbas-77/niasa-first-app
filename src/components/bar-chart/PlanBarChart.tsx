@@ -222,10 +222,10 @@ const data2 = [
 ];
 
 function PlanBarChart() {
-  const matches = useMediaQuery('(min-width:900px)');
+  const deviceW = useMediaQuery('(min-width:900px)');
   return (
     <ResponsiveContainer width="100%" height={240}>
-      <BarChart width={900} height={240} data={matches ? data : data2}>
+      <BarChart width={900} height={240} data={deviceW ? data : data2}>
         <Bar dataKey="uv" fill="#87C210" barSize={12} radius={20} />
       </BarChart>
     </ResponsiveContainer>

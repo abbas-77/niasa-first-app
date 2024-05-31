@@ -49,7 +49,7 @@ function Page(): ReactNode {
           borderRadius={3}
           height={320}
           sx={{
-            width: { xs: '376px', md: '488px' },
+            width: { xs: '376px', md: '100%' },
           }}
           display="flex"
           flexDirection="column"
@@ -76,7 +76,7 @@ function Page(): ReactNode {
         <Box
           height={320}
           sx={{
-            width: { xs: '376px', md: '488px' },
+            width: { xs: '376px', md: '100%' },
           }}
         >
           <Box fontSize={20} border="2px solid #F0F4F7" height={192} width="100%" borderRadius={2}>
@@ -113,8 +113,155 @@ function Page(): ReactNode {
         </Box>
       </Box>
       {/* details boxes */}
-      <Grid container alignItems="center" justifyContent="center" gap={2} color="#072C50">
-        <Grid xs={12} md={5} display="flex" direction="column" alignItems="center" gap={2}>
+      <Box
+        display="flex"
+        sx={{ flexDirection: { xs: 'column', md: 'row' } }}
+        alignItems="center"
+        justifyContent="center"
+        gap={2}
+        color="#072C50"
+      >
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          gap={2}
+          width="100%"
+        >
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F0F4F7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            <Typography variant="body2" paddingRight={1}>
+              Your current weight:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              87 KG
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F0F4F7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            {' '}
+            <Typography variant="body2" paddingRight={1}>
+              Your height:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              178 cm
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F0F4F7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            <Typography variant="body2" paddingRight={1}>
+              Fitness level:
+            </Typography>
+            <Typography
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              Intermediate
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          gap={2}
+          width="100%"
+        >
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F4FBE7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            <Typography variant="body2" paddingRight={1}>
+              Your food taste:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              Vegan
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F4FBE7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            <Typography variant="body2" paddingRight={1}>
+              Your lifestyle:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              Sedentary
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bgcolor="#F4FBE7"
+            borderRadius="32px"
+            width="100%"
+            height={88}
+          >
+            <Typography variant="body2" paddingRight={1}>
+              Metabolism:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: { xs: '700', md: '600' }, fontSize: { xs: '16px', md: '24px' } }}
+            >
+              {' '}
+              Moderate, Narrowly
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      {/* <Grid container alignItems="center" justifyContent="center" gap={2} color="#072C50">
+        <Grid xs={12} md={6} display="flex" direction="column" alignItems="center" gap={2}>
           <Grid
             item
             container
@@ -180,7 +327,7 @@ function Page(): ReactNode {
         </Grid>
         <Grid
           xs={12}
-          md={5}
+          md={6}
           display="flex"
           direction="column"
           alignItems="center"
@@ -251,7 +398,7 @@ function Page(): ReactNode {
             </Typography>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
       {/* your goal */}
       <Box
         sx={{
@@ -506,6 +653,19 @@ function Page(): ReactNode {
           <Card isPopular={false} isSelected isDiscountActive month="3-Month Plan" />
         </Grid>
       </Grid>
+      <Box width="100%" display="flex" alignItems="center" justifyContent="center" marginTop={5}>
+        <Box
+          width={432}
+          height={56}
+          bgcolor="#87C210"
+          borderRadius={32}
+          sx={{ display: { xs: 'none', md: 'flex' } }}
+          alignItems="center"
+          justifyContent="center"
+        >
+          Make Payment
+        </Box>
+      </Box>
       {/* charts */}
       <Box
         sx={{
