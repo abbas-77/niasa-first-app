@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { FaChevronRight } from 'react-icons/fa';
 /* eslint-disable react/destructuring-assignment */
 import React, { useState, ReactNode } from 'react';
@@ -9,6 +10,7 @@ import { Box, Grid, Checkbox, Container, Typography } from '@mui/material';
 
 import Card from 'src/components/card/card';
 import Header from 'src/components/header/Header';
+import PlanBarChart from 'src/components/bar-chart/PlanBarChart';
 
 interface TooltipProps {
   rtl: boolean | undefined;
@@ -664,51 +666,56 @@ function Page(): ReactNode {
           border="2px solid #F0F4F7"
           marginBottom={10}
           borderRadius={2}
-          paddingX={5}
+          paddingX={3}
         >
-          <Box display="flex" alignItems="center" justifyContent="space-between" paddingY={3}>
-            <Box display="flex" alignItems="center" gap={3}>
-              <Image src="/assets/icons/thunder/Vector.svg" width={16} height={20} alt="thunder" />
+          <Box display="flex" alignItems="center" justifyContent="space-between" paddingY={4}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <Box
+                width={50}
+                height={50}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{
+                  border: { xs: '2px solid #F0F4F7', md: 'none' },
+                  borderRadius: '100px',
+                  padding: { xs: '10px', md: 'none' },
+                }}
+              >
+                <Image
+                  src="/assets/icons/thunder/Vector.svg"
+                  width={16}
+                  height={20}
+                  alt="thunder"
+                />
+              </Box>
               <Box>
-                <Typography fontSize={24} color="#072C50">
+                <Typography sx={{ fontSize: { xs: '18px', md: '24px' } }} color="#072C50">
                   Your weight loss
                 </Typography>
-                <Typography fontSize={16} color="#7F9CB8">
+                <Typography sx={{ fontSize: { xs: '12px', md: '16px' } }} color="#7F9CB8">
                   How to reach the purpose?
                 </Typography>
               </Box>
             </Box>
             <Box>
-              <Typography fontSize={48} fontWeight={700} color="#072C50">
+              <Typography
+                sx={{ fontSize: { xs: '28px', md: '48px' } }}
+                fontWeight={700}
+                color="#072C50"
+              >
                 -7%
               </Typography>
             </Box>
           </Box>
           <Box position="relative">
-            <Box
-              marginTop={4}
-              sx={{
-                '&:before': {
-                  content: '""',
-                  display: 'block',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  width: '100%',
-                  height: '180px',
-                  backgroundImage:
-                    'repeating-linear-gradient(to right,#87C210 0, #87C210 8px,transparent 4px, transparent 22.2px)',
-                  marginBottom: '8px',
-                  transition: 'all 200ms',
-                },
-              }}
-            />
-
+            <PlanBarChart />
             <Tooltip
               bgc="#F0F4F7"
               rtl
-              left={105}
-              leftXs={105}
-              leftMd={105}
+              left={120}
+              leftXs={110}
+              leftMd={120}
               children={
                 <>
                   <Typography color="#7F9CB8">First day</Typography>
@@ -717,17 +724,19 @@ function Page(): ReactNode {
                   </Typography>
                 </>
               }
-              translateY={-220}
+              translateY={-260}
             />
             <Tooltip
               bgc="#072C50"
               rtl={false}
-              left={800}
-              leftXs={360}
-              leftMd={800}
+              left={920}
+              leftXs={280}
+              leftMd={920}
               children={
                 <>
-                  <Typography color="#7F9CB8">Last day</Typography>
+                  <Typography color="#7F9CB8" whiteSpace="nowrap">
+                    Last day
+                  </Typography>
                   <Typography color="#fff" fontWeight={700} fontSize={18} textAlign="center">
                     71 KG
                   </Typography>
