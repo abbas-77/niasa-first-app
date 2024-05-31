@@ -10,43 +10,8 @@ import { Box, Grid, Checkbox, Container, Typography } from '@mui/material';
 
 import Card from 'src/components/card/card';
 import Header from 'src/components/header/Header';
+import Tooltip from 'src/components/tooltip/Tooltip';
 import PlanBarChart from 'src/components/bar-chart/PlanBarChart';
-
-interface TooltipProps {
-  rtl: boolean | undefined;
-  left: number | string;
-  leftXs: number | string;
-  leftMd: number | string;
-  bgc: string;
-  children: ReactNode;
-  translateY: number;
-}
-
-function Tooltip({ rtl, left, leftXs, leftMd, bgc, children, translateY }: TooltipProps) {
-  return (
-    <Box
-      boxShadow="0px 8px 16px 0px #55555560"
-      borderRadius={
-        // eslint-disable-next-line no-nested-ternary
-        rtl && rtl === undefined ? '50% 50% 0 50%' : rtl ? '20px 20px 20px 0' : '20px 20px 0 20px'
-      }
-      position="absolute"
-      left={left}
-      zIndex={2}
-      bgcolor={bgc || 'white'}
-      paddingX={2}
-      paddingY={1}
-      color="white"
-      sx={{
-        transform: `translate(-100% , ${translateY}px)`,
-        transition: 'all',
-        left: { xs: leftXs, md: leftMd },
-      }}
-    >
-      {children}
-    </Box>
-  );
-}
 
 function Page(): ReactNode {
   const [gender, setGender] = useState<boolean>(false);
